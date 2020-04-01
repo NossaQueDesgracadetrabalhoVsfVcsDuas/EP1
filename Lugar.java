@@ -1,14 +1,32 @@
 public class Lugar {
 
-private int coord_x;
-private int coord_y;
+private int x;
+private int y;
+private int qtd;
 
- public static Lugar(int coord_x, int coord_y){
+    public Lugar(int x, int y){
 
-  this.coord_x = coord_x;
-  this.coord_y = coord_y;
-  
-  }  
+        setCoord(x,y);
+        this.qtd = 0;
+    }  
+ 
+    protected void setCoord(int x, int y){
+
+        this.x = x;
+        this.y = y;
+    }  
+
+    protected void setQtd() {
+        qtd++;
+    }
+ 
+    protected String getCoord(){
+        return x + "," + y;
+    } 
+ 
+    protected int getQtd(){
+        return qtd;
+    }   
 
 }
 
