@@ -275,7 +275,7 @@ class Calculadora {
         //Complemento de 1 (trocando bits de 0 para 1 e vice-versa)
         for(int i = 0; i < n.length; i++){ 
 
-            if(n[i]=="0") n[i] = 1;
+            if(n[i] == '0') n[i] = 1;
             else n[i] = 0;
         }
 
