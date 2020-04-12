@@ -268,7 +268,7 @@ class Calculadora {
         return zeros;
     }
 
-   private static String CompDois(numero){
+   private static String CompDois(int numero){
         
         char [] n = (String.valueOf(numero)).toCharArray();
 
