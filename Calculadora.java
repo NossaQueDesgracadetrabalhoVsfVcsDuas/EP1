@@ -270,50 +270,50 @@ class Calculadora {
 
     private static String CompDois(numero){
     
-    char [] n = (String.valueOf(numero)).toCharArray();
+        char [] n = (String.valueOf(numero)).toCharArray();
 
-    //Complemento de 1 (trocando bits de 0 para 1 e vice-versa)
-    for(int i = 0; i < n.length; i++){ 
-        
-        if(n[i]=="0") n[i] = 1;
-        else n[i] = 0;
-    }
+        //Complemento de 1 (trocando bits de 0 para 1 e vice-versa)
+        for(int i = 0; i < n.length; i++){ 
 
-    char [] res = new char [n.length+1];
-    char aux = '0';
-
-    //somando o (complemento de 1) + 1
-    for(int j = (n.length - 1); j > 0; j--){
-
-        //0 + 1 = 1
-        if(n[j-1]==0) res[j] = '1';
-
-        //1 + 1 = 0 e sobe 1
-        else if{ 
-            
-            res[j] = '0';
-            aux = '1';
+            if(n[i]=="0") n[i] = 1;
+            else n[i] = 0;
         }
 
-        //se subir 1
-        if(aux == '1'){
+        char [] res = new char [n.length+1];
+        char aux = '0';
 
-            //se último número à esquerda for 1 
-            if(j == '1') res[0] = '1';
+        //somando o (complemento de 1) + 1
+        for(int j = (n.length - 1); j > 0; j--){
 
-            //se o numero a esquerda for 1, ele passa a ser 0 e sobe 1 novamente
-            else if(n[j-2] == '1') n[j-1] = '0';
+            //0 + 1 = 1
+            if(n[j-1]==0) res[j] = '1';
 
-            //caso contrario, ele passa a ser 1 e nao sobe nenhum valor
-            else {
-                n[j-2] = '1';
-                aux = '0';
+            //1 + 1 = 0 e sobe 1
+            else if{ 
+
+                res[j] = '0';
+                aux = '1';
+            }
+
+            //se subir 1
+            if(aux == '1'){
+
+                //se último número à esquerda for 1 
+                if(j == '1') res[0] = '1';
+
+                //se o numero a esquerda for 1, ele passa a ser 0 e sobe 1 novamente
+                else if(n[j-2] == '1') n[j-1] = '0';
+
+                //caso contrario, ele passa a ser 1 e nao sobe nenhum valor
+                else {
+                    n[j-2] = '1';
+                    aux = '0';
+                }
             }
         }
-    }
 
-    String resultado = String.copyValueOf(res);
-    return resultado;
+        String resultado = String.copyValueOf(res);
+        return resultado;
 }
 
 
