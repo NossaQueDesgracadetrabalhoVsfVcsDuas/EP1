@@ -295,7 +295,7 @@ class Calculadora {
         }
 
         //somando tds bits restantes (à esquerda do último bit)
-        for(int j = (n.length - 2); j > 0; j--){
+        for(int j = (n.length - 2); j >= 0; j--){
 
             //se subir 1
             if(aux == '1'){
@@ -312,6 +312,8 @@ class Calculadora {
                     aux = '0';
                 }
             }
+
+            else res[j+1] = n[j];
         }
 
         String resultado = String.copyValueOf(res);
