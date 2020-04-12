@@ -286,7 +286,7 @@ class Calculadora {
         for(int j = (n.length - 1); j > 0; j--){
 
             //0 + 1 = 1
-            if(n[j-1]==0) res[j] = '1';
+            if(n[j-1] == '0') res[j] = '1';
 
             //1 + 1 = 0 e sobe 1
             else if{ 
