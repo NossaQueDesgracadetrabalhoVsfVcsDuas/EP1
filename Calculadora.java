@@ -268,32 +268,34 @@ class Calculadora {
         return zeros;
     }
 
-    private static String CompDois(numero){
-    
+   private static String CompDois(numero){
+        
         char [] n = (String.valueOf(numero)).toCharArray();
 
         //Complemento de 1 (trocando bits de 0 para 1 e vice-versa)
         for(int i = 0; i < n.length; i++){ 
-
-            if(n[i] == '0') n[i] = '1';
-            else n[i] = '0';
+            
+            if(n[i]=="0") n[i] = 1;
+            else n[i] = 0;
         }
 
+    
         char [] res = new char [n.length+1];
         char aux = '0';
 
         //somando o (complemento de 1) + 1
-        for(int j = (n.length - 1); j > 0; j--){
+        //0 + 1 = 1
+        if(n[n.length-1] == 0) res[res.length-1] = '1';
 
-            //0 + 1 = 1
-            if(n[j-1] == '0') res[j] = '1';
+        //1 + 1 = 0 e sobe 1
+        else if{ 
+                
+            res[res.length-1] = '0';
+            aux = '1';
+        }
 
-            //1 + 1 = 0 e sobe 1
-            else if{ 
-
-                res[j] = '0';
-                aux = '1';
-            }
+        //somando tds bits restantes (à esquerda do último bit)
+        for(int j = (n.length - 2); j > 0; j--){
 
             //se subir 1
             if(aux == '1'){
@@ -314,7 +316,7 @@ class Calculadora {
 
         String resultado = String.copyValueOf(res);
         return resultado;
-}
+    }
 
 
 }
